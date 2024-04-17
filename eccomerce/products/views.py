@@ -7,7 +7,10 @@ def index(request):
     return render(request, "index.html")
 
 def products(request):
-    return render(request, "products.html")
+    product = Product.objects.filter(is_active=True)
+    return render(request, "products.html", {
+        "product": product
+    })
 
 def cart(request):
     return render(request, "cart.html")
