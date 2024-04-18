@@ -54,6 +54,32 @@
 
             {% endfor %}
 
+            {% if request.path == "/women/" %}
+              
+            
+            {% for p in product %}
+            <div class="col-lg-6 col-md-6 item-entry mb-4">
+              <a href="#" class="product-item md-height bg-gray d-block">
+                <img src="{{p.image.url}}" alt="Image" class="img-fluid">
+              </a>
+
+              <h2 class="item-title"><a href="#"> {{p.title}} </a></h2>
+              <strong class="item-price"><del>${{p.old_price}}</del> ${{p.price}}</strong>
+              <div class="star-rating">
+                <span class="icon-star2 text-warning"></span>
+                <span class="icon-star2 text-warning"></span>
+                <span class="icon-star2 text-warning"></span>
+                <span class="icon-star2 text-warning"></span>
+                <span class="icon-star2 text-warning"></span>
+              </div>
+            </div>
+
+            {% endfor %}
+            
+            {% endif %}
+
+            
+
           </div>
 
           <div class="row">
