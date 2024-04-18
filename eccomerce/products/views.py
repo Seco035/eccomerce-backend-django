@@ -4,7 +4,12 @@ from .models import *
 # Create your views here.
 
 def index(request):
-    return render(request, "index.html")
+    
+    products = Product.objects.filter(is_home=True)
+
+    return render(request, "index.html", {
+        "products":products
+    })
 
 def products(request):
     product = Product.objects.filter(is_active=True)
