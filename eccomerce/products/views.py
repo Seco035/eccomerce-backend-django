@@ -11,14 +11,17 @@ def index(request):
         "products":products
     })
 
+
 def products(request):
     product = Product.objects.filter(is_active=True)
     return render(request, "products.html", {
         "product": product
     })
 
+
 def cart(request):
     return render(request, "cart.html")
+
 
 def women_products(request):
     product = Product.objects.filter(gender="F")
@@ -27,6 +30,7 @@ def women_products(request):
         "product":product
 
     })
+
 
 def product_details(request, slug):
     product = Product.objects.get(slug=slug)
