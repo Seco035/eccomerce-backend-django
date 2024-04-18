@@ -2,10 +2,10 @@
 {% for product in products %}
 <div class="item">
   <div class="item-entry">
-    <a href="#" class="product-item md-height bg-gray d-block">
+    <a href="{% url 'product_details' product.slug %}" class="product-item md-height bg-gray d-block">
       <img src="{{product.image.url}}" alt="Image" class="img-fluid">
     </a>
-    <h2 class="item-title"><a href="#"> {{product.title}} </a></h2>
+    <h2 class="item-title"><a href="{% url 'product_details' product.slug %}"> {{product.title}} </a></h2>
     <strong class="item-price"><del>${{product.old_price}}</del> ${{product.price}}</strong>
 
     <div class="star-rating">
