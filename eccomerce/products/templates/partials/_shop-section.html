@@ -34,7 +34,8 @@
             </div>
           </div>
           <div class="row mb-5">
-
+            {% if request.path == "/products/" %}
+              
             {% for p in product %}
             <div class="col-lg-6 col-md-6 item-entry mb-4">
               <a href="#" class="product-item md-height bg-gray d-block">
@@ -54,6 +55,9 @@
 
             {% endfor %}
 
+            {% else %}
+            {% endif %}
+            
             {% if request.path == "/women/" %}
               
             
