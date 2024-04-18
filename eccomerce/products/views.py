@@ -15,9 +15,13 @@ def products(request):
 def cart(request):
     return render(request, "cart.html")
 
+
 def product_details(request, slug):
-    product = Product.objects.filter(is_home=True)
+    product = Product.objects.get(slug=slug)
+    products = Product.objects.filter(is_active=True)
 
     return render(request, "product_details.html", {
-        "product": product
+        "product": product,
+        "products":products
+
     })
