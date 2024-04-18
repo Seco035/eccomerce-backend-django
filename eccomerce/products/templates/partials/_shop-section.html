@@ -14,7 +14,7 @@
                     Latest
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                    <a class="dropdown-item" href="#">Men</a>
+                    <a class="dropdown-item" href="{% url 'men_products' %}">Men</a>
                     <a class="dropdown-item" href="{% url 'women_products' %}">Women</a>
                     <a class="dropdown-item" href="#">Children</a>
                   </div>
@@ -34,55 +34,35 @@
             </div>
           </div>
           <div class="row mb-5">
+            
+            {% comment %} All Products {% endcomment %}
+            
             {% if request.path == "/products/" %}
               
-            {% for p in product %}
-            <div class="col-lg-6 col-md-6 item-entry mb-4">
-              <a href="#" class="product-item md-height bg-gray d-block">
-                <img src="{{p.image.url}}" alt="Image" class="img-fluid">
-              </a>
+            {% include "partials/_item-section.html" %}
 
-              <h2 class="item-title"><a href="#"> {{p.title}} </a></h2>
-              <strong class="item-price"><del>${{p.old_price}}</del> ${{p.price}}</strong>
-              <div class="star-rating">
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-              </div>
-            </div>
-
-            {% endfor %}
 
             {% endif %}
+
+
+            {% comment %} mens Products {% endcomment %}
+
+            {% if request.path == "/men/" %}
+
+              {% include "partials/_item-section.html" %}
+      
             
+            {% endif %}
+           
+            {% comment %} Womens Products {% endcomment %}
+
             {% if request.path == "/women/" %}
-              
-            
-            {% for p in product %}
-            <div class="col-lg-6 col-md-6 item-entry mb-4">
-              <a href="#" class="product-item md-height bg-gray d-block">
-                <img src="{{p.image.url}}" alt="Image" class="img-fluid">
-              </a>
 
-              <h2 class="item-title"><a href="#"> {{p.title}} </a></h2>
-              <strong class="item-price"><del>${{p.old_price}}</del> ${{p.price}}</strong>
-              <div class="star-rating">
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-                <span class="icon-star2 text-warning"></span>
-              </div>
-            </div>
-
-            {% endfor %}
+              {% include "partials/_item-section.html" %}
+      
             
             {% endif %}
-
             
-
           </div>
 
           <div class="row">
@@ -106,7 +86,7 @@
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Categories</h3>
             <ul class="list-unstyled mb-0">
-              <li class="mb-1"><a href="#" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
+              <li class="mb-1"><a href="{% url 'men_products' %}" class="d-flex"><span>Men</span> <span class="text-black ml-auto">(2,220)</span></a></li>
               <li class="mb-1"><a href="{% url 'women_products' %}" class="d-flex"><span>Women</span> <span class="text-black ml-auto">(2,550)</span></a></li>
               <li class="mb-1"><a href="#" class="d-flex"><span>Children</span> <span class="text-black ml-auto">(2,124)</span></a></li>
             </ul>

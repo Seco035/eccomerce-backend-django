@@ -23,6 +23,14 @@ def cart(request):
     return render(request, "cart.html")
 
 
+def men_products(request):
+    product = Product.objects.filter(gender="M")
+
+    return render(request, "products.html", {
+        "product":product
+
+    })
+
 def women_products(request):
     product = Product.objects.filter(gender="F")
 
