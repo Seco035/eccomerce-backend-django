@@ -10,13 +10,7 @@
 
     {% include "partials/_navbar.html" %}
     
-    <div class="site-blocks-cover inner-page" style="background-image: url('images/hero_2.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center" data-aos="fade">
-      <div class="container">
-        <div class="row">
-        
-        </div>
-      </div>
-    </div>
+    <div class="site-blocks-cover inner-page" style="background-image: url('{% static "images/hero_2.jpg" %}'); background-repeat: no-repeat; background-size: cover; background-position: center" data-aos="fade"></div>
 
     <div class="custom-border-bottom py-3">
       <div class="container">
@@ -35,7 +29,7 @@
           </div>
           <div class="col-md-7">
 
-            <form action="#" method="post">
+            <form action="#" method="POST">
               
               <div class="p-3 p-lg-5 border">
                 <div class="form-group row">
@@ -74,7 +68,9 @@
                 </div>
               </div>
             </form>
+
           </div>
+
           <div class="col-md-5 ml-auto">
             <div class="p-4 border mb-3">
               <span class="d-block text-primary h6 text-uppercase">New York</span>
@@ -90,6 +86,7 @@
             </div>
 
           </div>
+        
         </div>
       </div>
     </div>
