@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from .views import *
 from .models import *
 from .forms import ContactForm
@@ -23,6 +23,9 @@ def products(request):
 def cart(request):
     return render(request, "cart.html")
 
+def ty(request):
+    return render(request, "thankyou.html")
+
 def contact(request):
 
 
@@ -30,7 +33,7 @@ def contact(request):
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            return render(request, "contact.html", {'contact_form': contact_form})
+            return redirect("ty")
     else:
         contact_form = ContactForm
     
