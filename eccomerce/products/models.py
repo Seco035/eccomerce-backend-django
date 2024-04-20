@@ -38,4 +38,9 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.title} {self.price}"
 
-    
+class Contact(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(null=True, blank=True)
+    subject = models.CharField(max_length=200)
+    message = models.TextField()

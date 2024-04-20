@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .views import *
 from .models import *
+from .forms import ContactForm
 # Create your views here.
 
 def index(request):
@@ -23,7 +24,17 @@ def cart(request):
     return render(request, "cart.html")
 
 def contact(request):
-    return render(request, "contact.html")
+
+
+    if request.method == "POST":
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            return render(request, "contact.html", {'contact_form': contact_form})
+    else:
+        contact_form = ContactForm
+    
+    return render(request, "contact.html", {'contact_form': contact_form})
 
 def men_products(request):
     product = Product.objects.filter(gender="M")
