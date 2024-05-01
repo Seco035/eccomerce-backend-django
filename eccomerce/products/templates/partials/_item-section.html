@@ -1,5 +1,5 @@
 {% load static %}
-{% for p in product %}
+{% for p in products %}
 <div class="col-lg-6 col-md-6 item-entry mb-4">
   <a href="{% url 'product_details' p.slug %}" class="product-item md-height bg-gray d-block">
     <img src="{{p.image.url}}" alt="Image" class="img-fluid">

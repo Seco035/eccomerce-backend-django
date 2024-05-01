@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from .views import *
 from .models import *
 from .forms import ContactForm
+from django.db.models import Q
 # Create your views here.
 
 def index(request):
     
     products = Product.objects.filter(is_home=True)
+
 
     return render(request, "index.html", {
         "products":products
@@ -14,10 +16,18 @@ def index(request):
 
 
 def products(request):
-    product = Product.objects.filter(is_active=True)
+    products = Product.objects.filter(is_active=True)
+    
+    search = request.GET.get("search")
+    if search:
+        products = products.filter(
+            Q(title__icontains=search)
+        )
+    
     return render(request, "products.html", {
-        "product": product
+        "products": products
     })
+
 
 
 def cart(request):
